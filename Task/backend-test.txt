@@ -1,0 +1,11 @@
+Overview: To create a microservice/webhook to process and return data using codeigniter v3.1.11
+
+Example inbound source data: MOCK_DATA.json
+
+Task A: Design a MySQL / MariaDB solution to store the data, provide the SQL insert statement for creation.
+Task B: Design a controller to process the data from a POST statement from 4.5.6.0/24 and insert it into the database. 
+Task C: Design a controller to return json data for *.budgetvm.com or 6.5.4.0/24 with options to filter and limit the return based on any variable
+Task D: Create a CRUD interface in bootstrap to manage the database solution (Ajax/jQuery optional)
+
+
+
