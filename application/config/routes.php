@@ -57,6 +57,5 @@ $route['postData'] = 'postData';
 $route['mockData/(:any)/(:any)'] = 'mockData/view/$1/$2';
 $route['mockData/(:any)/(:any)/(:num)'] = 'mockData/view/$1/$2/$3';
 $route['mockData'] = 'mockData';
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
+$route['default_controller'] = 'mockData';
 
