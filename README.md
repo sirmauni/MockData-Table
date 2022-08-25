@@ -10,7 +10,7 @@ The task was broken down into 4 segments:
 
 [Task B: Design a controller to process the data from a POST statement from 4.5.6.0/24 and insert it into the database.](#task-b) 
 	
-[Task C: Design a controller to return json data for *.budgetvm.com or 6.5.4.0/24 with options to filter and limit the return based on any variable.](#task-c)
+[Task C: Design a controller to return json data for *.dashnetworks.com or 6.5.4.0/24 with options to filter and limit the return based on any variable.](#task-c)
 	
 [Task D: Create a CRUD interface in bootstrap to manage the database solution (Ajax/jQuery optional).](#task-d)
 
@@ -42,10 +42,10 @@ Nevertheless, here is a sample of the procedures I created.
 
 ```sql
 # procedure for inserting new rows into table
-USE `budgetvm` $$
+USE `dashnetworks` $$
 CREATE procedure `InsertNewRow` (IN newID INT, IN newFirstName VARCHAR(120), IN newLastName VARCHAR(120), IN newEmail VARCHAR(120), IN newGender VARCHAR(120), IN newIpAddress VARCHAR(120), IN newGenre VARCHAR(120), IN newMisc VARCHAR(120))
 BEGIN
-	INSERT INTO `budgetvm`.`mock_data` (`id`, `firstName`, `lastName`, `email`, `gender`, `ipAddress`, `genres`, `misc`)
+	INSERT INTO `dashnetworks`.`mock_data` (`id`, `firstName`, `lastName`, `email`, `gender`, `ipAddress`, `genres`, `misc`)
     VALUES (newID, newFirstName, newLastName, newEmail, newGender, NewIpAddress, newGenre, newMisc);
 END $$
 ```
@@ -183,9 +183,9 @@ public function get_data_like($columnName = NULL, $data = NULL, $limit = 0) {
 	return $query->result_array();
 } 
 ```
-In order to allow request from 6.5.4.0 for *.budgetvm.com, I modified my apache site configuration again:
+In order to allow request from 6.5.4.0 for *.dashnetworks.com, I modified my apache site configuration again:
 ```configuration
-ServerAlias *.budgetvm.com
+ServerAlias *.dashnetworks.com
 ...
 <Location ~ "/index.php/mockData/.*">
 	Deny from all
@@ -193,7 +193,7 @@ ServerAlias *.budgetvm.com
 </Location>
 ```
 
-The results of request from the url "http://www.budgetvm.com/index.php/mockData/gender/Male/3" returns all rows where their gender column has like text for "Male" and limits the number of rows returned to 3.
+The results of request from the url "http://www.dashnetworks.com/index.php/mockData/gender/Male/3" returns all rows where their gender column has like text for "Male" and limits the number of rows returned to 3.
 ```json
 [{"id":"1","firstName":"Piggy","lastName":"Havoc","email":"phavoc0@meetup.com","gender":"Male","ipAddress":"251.102.141.246","genres":"Comedy|Horror|Sci-Fi|Thriller","misc":"\u180e"},{"id":"2","firstName":"Marion","lastName":"Jakeway","email":"mjakeway1@tuttocitta.it","gender":"Male","ipAddress":"91.132.175.211","genres":"Comedy|Documentary","misc":"() { 0; }; touch \/tmp\/blns.shellshock1.fail;"},{"id":"3","firstName":"Kai","lastName":"Wolton","email":"kwolton2@exblog.jp","gender":"Female","ipAddress":"17.112.23.41","genres":"Adventure|Drama|Mystery|Thriller","misc":"????????"}]
 ```
@@ -254,13 +254,13 @@ class DeleteData extends CI_Controller {
 ```
 
 ## URL Index
-	http://www.budgetvm.com/index.php/insertData : Insert Data via POST
-	http://www.budgetvm.com/index.php/deleteData : Delete All Data 
-	http://www.budgetvm.com/index.php/deleteData/[id] : Delete All Rows that match id
-	http://www.budgetvm.com/index.php/postData : Update/Replace via POST
-	http://www.budgetvm.com/index.php/mockData/[variable/columnName]/[data] : filtered json without limit
-	http://www.budgetvm.com/index.php/mockData/[variable/columnName]/[data]/[limit] : filtered json with limit
-	http://www.budgetvm.com/index.php/mockData : Crud Interface
+	http://www.dashnetworks.com/index.php/insertData : Insert Data via POST
+	http://www.dashnetworks.com/index.php/deleteData : Delete All Data 
+	http://www.dashnetworks.com/index.php/deleteData/[id] : Delete All Rows that match id
+	http://www.dashnetworks.com/index.php/postData : Update/Replace via POST
+	http://www.dashnetworks.com/index.php/mockData/[variable/columnName]/[data] : filtered json without limit
+	http://www.dashnetworks.com/index.php/mockData/[variable/columnName]/[data]/[limit] : filtered json with limit
+	http://www.dashnetworks.com/index.php/mockData : Crud Interface
 	
 ## routes
 ```configuration

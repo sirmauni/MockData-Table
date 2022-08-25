@@ -46,7 +46,7 @@ function InsertNewItem() {
     }
   }
   
-  // open post to http://budgetvm.com/index.php/insertData
+  // open post to http://dashnetworks.com/index.php/insertData
   xhttp.open("POST", "insertData");
   // set request headers for application/json 
   xhttp.setRequestHeader("Content-Type", "application/json");
@@ -134,7 +134,7 @@ function UpdateItem(element) {
     }
   };
   
-  // open post to http://budgetvm.com/index.php/postData
+  // open post to http://dashnetworks.com/index.php/postData
   xhttp.open("POST", "postData");
   // set request headers for application/json 
   xhttp.setRequestHeader("Content-Type", "application/json");
@@ -162,7 +162,7 @@ function DeleteItem(event, item_id) {
     }
   }
   
-  // open get connection to http://budgetvm.com/index.php/deleteData/[itemID]
+  // open get connection to http://dashnetworks.com/index.php/deleteData/[itemID]
   xhttp.open("GET", "deleteData/" + item_id.toString() ,true);
   // request information via open connection
   xhttp.send();  
@@ -189,7 +189,7 @@ function DeleteAllItems() {
     }
   };
   
-  // open get connection to http://budgetvm.com/index.php/deleteData
+  // open get connection to http://dashnetworks.com/index.php/deleteData
   xhttp.open("GET", "deleteData", true);
   // request information via open connection
   xhttp.send();

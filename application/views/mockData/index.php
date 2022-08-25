@@ -3,8 +3,8 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://budgetvm.com/css/style.css">
-    <script src="http://budgetvm.com/js/mockdata.js"></script>
+    <link rel="stylesheet" href="http://dashnetworks.com/css/style.css">
+    <script src="http://dashnetworks.com/js/mockdata.js"></script>
   </head>
   <body>
     <h2 class="headerTitle"><?php echo $title ?></h2>
